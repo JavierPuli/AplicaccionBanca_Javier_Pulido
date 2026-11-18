@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sistema inteligente de predicción de abandono de clientes bancarios">
+    <title>BankGuard | Predicción de abandono</title>
+
+    <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+
+<body>
+
+    <header class="navbar">
+        <div class="brand">
+            <div class="brand-icon">B</div>
+            <div>
+                <h1>BankGuard</h1>
+                <span>Customer Intelligence</span>
+            </div>
+        </div>
+
+        <div class="status">
+            <span class="status-dot"></span>
+            Sistema de predicción activo
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="hero">
+            <div>
+                <span class="eyebrow">INTELIGENCIA ARTIFICIAL · BANCA</span>
+                <h2>Predicción de abandono de clientes</h2>
+                <p>
+                    Analiza el perfil de tus clientes mediante nuestro
+                    modelo de Machine Learning y detecta posibles riesgos
+                    de abandono.
+                </p>
+            </div>
+
+            <div class="hero-icon">📊</div>
+        </section>
+
+        <section class="content-grid">
+
+            <!-- FORMULARIO -->
+            <div class="panel form-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h3>Información del cliente</h3>
+                        <p>Introduce los datos para realizar la predicción.</p>
+                    </div>
+                    <span class="step">01</span>
+                </div>
+
+                <form id="predictionForm">
+
+                    <div class="form-section-title">
+                        <span>01</span> Datos personales
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="edad">Edad</label>
+                            <input
+                                type="number"
+                                id="edad"
+                                name="edad"
+                                min="1"
+                                max="120"
+                                placeholder="Ej. 35"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="nivel_estudios">Nivel de estudios</label>
+                            <select id="nivel_estudios" name="nivel_estudios" required>
+                                <option value="">Seleccionar</option>
+                                <option value="Primaria">Primaria</option>
+                                <option value="Secundaria">Secundaria</option>
+                                <option value="Grado">Grado</option>
+                                <option value="Master">Master</option>
+                                <option value="Doctorado">Doctorado</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-section-title">
+                        <span>02</span> Información financiera
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="ingresos_anuales">Ingresos anuales (€)</label>
+                            <input
+                                type="number"
+                                id="ingresos_anuales"
+                                name="ingresos_anuales"
+                                min="0"
+                                placeholder="35000"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="salario_mensual_aprox">Salario mensual (€)</label>
+                            <input
+                                type="number"
+                                id="salario_mensual_aprox"
+                                name="salario_mensual_aprox"
+                                min="0"
+                                placeholder="2500"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="saldo_cuenta">¿Tiene saldo en cuenta?</label>
+                            <select id="saldo_cuenta" name="saldo_cuenta" required>
+                                <option value="">Seleccionar</option>
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="tipo_cuenta">Tipo de cuenta</label>
+                            <select id="tipo_cuenta" name="tipo_cuenta" required>
+                                <option value="">Seleccionar</option>
+                                <option value="Corriente">Corriente</option>
+                                <option value="Ahorro">Ahorro</option>
+                                <option value="Nomina">Nómina</option>
+                                <option value="Inversion">Inversión</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="form-section-title">
+                        <span>03</span> Relación con el banco
+                    </div>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label for="antiguedad_meses">Antigüedad (meses)</label>
+                            <input
+                                type="number"
+                                id="antiguedad_meses"
+                                name="antiguedad_meses"
+                                min="0"
+                                placeholder="48"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="num_productos">Número de productos</label>
+                            <input
+                                type="number"
+                                id="num_productos"
+                                name="num_productos"
+                                min="1"
+                                placeholder="2"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label for="nivel_satisfaccion">Nivel de satisfacción</label>
+                            <select
+                                id="nivel_satisfaccion"
+                                name="nivel_satisfaccion"
+                                required
+                            >
+                                <option value="">Seleccionar</option>
+                                <option value="Muy Bajo">Muy Bajo</option>
+                                <option value="Bajo">Bajo</option>
+                                <option value="Medio">Medio</option>
+                                <option value="Alto">Alto</option>
+                                <option value="Muy Alto">Muy Alto</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label for="tiene_tarjeta">¿Tiene tarjeta?</label>
+                            <select id="tiene_tarjeta" name="tiene_tarjeta" required>
+                                <option value="">Seleccionar</option>
+                                <option value="true">Sí</option>
+                                <option value="false">No</option>
+                            </select>
+                        </div>
+
+                        <div class="field full">
+                            <label for="canal_preferido">Canal preferido</label>
+                            <select
+                                id="canal_preferido"
+                                name="canal_preferido"
+                                required
+                            >
+                                <option value="">Seleccionar</option>
+                                <option value="App Movil">App Móvil</option>
+                                <option value="Web">Web</option>
+                                <option value="Oficina">Oficina</option>
+                                <option value="Telefono">Teléfono</option>
+                                <option value="Cajero Antiguo">Cajero Antiguo</option>
+                            </select>
+                        </div>
+
+                        <div class="field full">
+                            <label for="comentarios_cliente">Comentarios del cliente (opcional)</label>
+                            <textarea
+                                id="comentarios_cliente"
+                                name="comentarios_cliente"
+                                maxlength="50"
+                                placeholder="Comentarios adicionales..."
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="reset" class="btn-secondary">
+                            Limpiar formulario
+                        </button>
+
+                        <button type="submit" id="submitBtn" class="btn-primary">
+                            <span id="buttonText">Analizar cliente</span>
+                            <span>→</span>
+                        </button>
+                    </div>
+
+                </form>
+
+            </div>
+
+            <!-- RESULTADOS -->
+            <aside class="panel result-panel">
+
+                <div class="panel-heading">
+                    <div>
+                        <h3>Resultado del análisis</h3>
+                        <p>Diagnóstico generado por Machine Learning.</p>
+                    </div>
+                    <span class="step">02</span>
+                </div>
+
+                <div id="emptyState" class="empty-state">
+                    <div class="empty-icon">🔍</div>
+                    <h4>Esperando análisis</h4>
+                    <p>
+                        Completa el formulario y pulsa
+                        "Analizar cliente" para obtener la predicción.
+                    </p>
+                </div>
+
+                <div id="loadingState" class="loading-state hidden">
+                    <div class="spinner"></div>
+                    <h4>Analizando cliente...</h4>
+                    <p>El modelo KNN está procesando los datos.</p>
+                </div>
+
+                <div id="errorState" class="error-state hidden">
+                    <div class="empty-icon">⚠️</div>
+                    <h4>Error en la predicción</h4>
+                    <p id="errorMessage"></p>
+                </div>
+
+                <div id="resultState" class="result-content hidden">
+
+                    <div class="risk-card" id="riskCard">
+                        <span class="risk-label">NIVEL DE RIESGO</span>
+                        <h2 id="riskLevel">--</h2>
+                        <p id="riskDescription">--</p>
+                    </div>
+
+                    <div class="probability-box">
+                        <div class="probability-header">
+                            <span>Probabilidad de abandono</span>
+                            <strong id="probabilityValue">0%</strong>
+                        </div>
+
+                        <div class="progress-track">
+                            <div id="progressBar" class="progress-bar"></div>
+                        </div>
+
+                        <div class="progress-labels">
+                            <span>0%</span>
+                            <span>50%</span>
+                            <span>100%</span>
+                        </div>
+                    </div>
+
+                    <div class="prediction-details">
+
+                        <div class="detail-item">
+                            <span>Predicción</span>
+                            <strong id="resultPrediction">--</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="recommendation">
+                        <div class="recommendation-icon">💡</div>
+                        <div>
+                            <h4>Acción recomendada</h4>
+                            <p id="recommendedAction">--</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer">
+                    <span>●</span> Motor predictivo KNeighborsClassifier
+                </div>
+
+            </aside>
+
+        </section>
+
+        <footer>
+            <p>BankGuard · Sistema inteligente de prevención de abandono bancario</p>
+            <span>Powered by FastAPI & Machine Learning</span>
+        </footer>
+
+    </main>
+
+    <script src="/static/js/app.js"></script>
+
+</body>
+</html>
